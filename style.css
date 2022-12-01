@@ -1,9 +1,10 @@
-html, body {
-    height: 100%;
-    width: 100%;
-  }
 
-  canvas{
-  border: 1px solid black;
-  background: black;
-  }
+body {
+  text-align: center;
+  color:white;
+}
+
+canvas{
+border: 1px solid black;
+background: black;
+}

@@ -8,12 +8,39 @@ cnv.height = 1000;
 
 
 //Global variables for keys 
-let leftrectY = 50;
-let rightrectY = 50;
-let upIsPressed = false;
-let downIsPressed = false;
-let wIsPressed = false;
-let sIsPressed = false
+let leftIsPressed = false;
+let rightIsPressed = false;
+let aIsPressed = false;
+let dIsPressed = false
+
+//Global Variables
+let state = "start";
+let max = 475;
+let grid= 20;
+let ball = {
+  x:400,
+  y:300, 
+  radius : 12,
+  velocityX: 3, 
+  velocityY: 8,
+  color: "white"
+}
+let paddle = {
+  x:400,
+  y:500,
+  w:110,
+  h:15
+}
+// Global variables for sound effects
+// let bounce = document.createElement("audio");
+// bounce.src = "sounds/ballbounce.mp3";
+// let gameOver = document.createElement ("audio");
+// gameOver.src = "sounds/gameOver.mp3";
+// let paddlebounce = document.createElement("audio");
+// paddlebounce.src = "sounds/paddlebounce.mp3";
+
+
+
 
 //Draw Function
 window.addEventListener("load", draw)
@@ -24,8 +51,6 @@ function draw (){
   if(state==="gameon"){
    move();
    drawGame();
-   gameOn();
-   score();
   
   }
   if (state === "gameover"){
@@ -37,33 +62,33 @@ function draw (){
 
 
 //Event Stuff
-document.addEventListener("keydown", arrowdownHandler);
-document.addEventListener("keyup", arrowupHandler);
+document.addEventListener("keydown", arrowLeftHandler);
+document.addEventListener("keyup", arrowRightHandler);
 
 
-function arrowdownHandler(event) {
-  if (event.code === "KeyW") {
-    wIsPressed = true;
-  } else if (event.code === "KeyS"){
-    sIsPressed = true;
-  } else if (event.code === "ArrowUp"){
-    upIsPressed = true;
-  } else if (event.code === "ArrowDown"){
-    downIsPressed = true;
+function arrowLeftHandler(e) {
+  if (e.keycode === 37 ) {
+    leftIsPressed = true;
+  } else if (e.keycode === 39){
+    rightIsPressed = true;
+  } else if (e.keycode === 65){
+    aIsPressed = true;
+  } else if (e.keycode === 68){
+    dIsPressed = true;
   }
   if (state==="start") {
    state = "gameon"
   }
 }
 
-function arrowupHandler(event) {
-  if (event.code === "ArrowUp"){
-    upIsPressed = false;
-  } else if (event.code === "KeyS"){
-    sIsPressed = false;
-  } else if (event.code === "KeyW"){
-    wIsPressed = false;
-  } else if (event.code === "ArrowDown"){
-    downIsPressed = false;
+function arrowRightHandler(e) {
+  if (e.keycode === 37){
+    leftIsPressed = false;
+  } else if (e.keycode === 39){
+    rightIsPressed = false;
+  } else if (e.keycode === 65){
+    aIsPressed = false;
+  } else if (e.keycode ===68){
+    dIsPressed = false;
   }
 }
