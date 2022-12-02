@@ -13,7 +13,7 @@ function drawStart() {
   function drawGame() {
     drawMainComponents();
     moveBall();
-
+    
   }
   
   //Move Paddles
@@ -55,12 +55,12 @@ function drawStart() {
   //Ball Collisions with the walls
   
   function ballCollisions() {
-    if (ball.y < 40) {
+    if (ball.y < 780) {
       ball.velocityY = 8;
     //   bounce.play();
     
     }
-    if (ball.y > 750) {
+    if (ball.y >745) {
         state = "gameover";
     }
 
@@ -79,10 +79,10 @@ function drawStart() {
     // Ball Collsion with Paddles
 
     if (ball.x <= paddle.x + 10 && ball.y >= paddle.y && ball.y <= paddle.y + 90) {
-      ball.velocityX = ax;
-      ax = ax -= 1;
-      paddlebounce.play();
-      bounce.pause();
+      ball.velocityX = 3;
+      ball.velocityX -= 1;
+      // paddlebounce.play();
+      // bounce.pause();
     }
 
     //Helper Functions 
@@ -104,5 +104,34 @@ function drawMainComponents() {
     ctx.fill();
   }
 
+
+  // Draw Game Over
+function drawGameOver() {
+  drawMainComponents();
+
+  //Draw Game Over Text
+  if (ball.y > 745) {
+    ctx.font = "23px Consolas";
+    ctx.fillStyle = "lightblue";
+    ctx.fillText("GAME OVER!", 415, 100);
+    // gameOver.play();
+    setTimeout(tabReset, 3000);
+
+  }
+  if (leftPlayerScore === 7) {
+    // ctx.font = "23px Consolas";
+    // ctx.fillStyle = "lightblue";
+    // ctx.fillText("GAME OVER! Player 2 Wins!!", 65, 100);
+    // gameOver.play();
+    // setTimeout(tabReset, 2000);
+
+  }
+}
+
+
+function tabReset() {
+  state = "start";
+  document.location.reload();
+}
   
   

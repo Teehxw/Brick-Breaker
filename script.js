@@ -3,8 +3,8 @@
 //Set Up Canvas
 let cnv = document.getElementById("myCanvas");
 let ctx = cnv.getContext("2d");
-cnv.width = 1200;
-cnv.height = 1000;
+cnv.width = 800;
+cnv.height = 600;
 
 
 //Global variables for keys 
@@ -62,8 +62,8 @@ function draw (){
 
 
 //Event Stuff
-document.addEventListener("keydown", arrowLeftHandler);
-document.addEventListener("keyup", arrowRightHandler);
+document.addEventListener("keyup", arrowLeftHandler);
+document.addEventListener("keydown", arrowRightHandler);
 
 
 function arrowLeftHandler(e) {
