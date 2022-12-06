@@ -18,16 +18,16 @@ function drawStart() {
   
   //Move Paddles
   function move() {
-    if (aIsPressed == true) {
+    if (aIsPressed === true) {
       paddle.x -= 10;
     }
-    if (dIsPressed == true) {
+    if (dIsPressed === true) {
       paddle.x += 10;
     }
-    if (leftIsPressed == true) {
+    if (leftIsPressed === true) {
       paddle.x -= 10;
     }
-    if (rightIsPressed == true) {
+    if (rightIsPressed === true) {
       paddle.x += 10;
     }
     checkCollisions();
@@ -60,7 +60,7 @@ function drawStart() {
     //   bounce.play();
     
     }
-    if (ball.y > 750) {
+    if (ball.y > 910) {
         state = "gameover";
     }
 
@@ -81,8 +81,8 @@ function drawStart() {
     if (ball.x <= paddle.x + 10 && ball.y >= paddle.y && ball.y <= paddle.y + 90) {
       ball.velocityX = ax;
       ax = ax -= 1;
-      paddlebounce.play();
-      bounce.pause();
+      // paddlebounce.play();
+      // bounce.pause();
     }
 
     //Helper Functions 
@@ -103,6 +103,40 @@ function drawMainComponents() {
     ctx.arc(ball.x, ball.y, ball.radius, 0, 2 * Math.PI);
     ctx.fill();
   }
+
+  function drawGameOver(){
+    drawMainComponents();
+  //Draw Game Over Text
+  if (ball.y >910) {
+    ctx.font = "100px Consolas";
+    ctx.fillStyle = "lightblue";
+    ctx.fillText("GAME OVER!",300, 500 )
+    //gameOver.play();
+    setTimeout(tabReset, 3000);
+
+  }
+  // if (leftPlayerScore === 7) {
+  //   ctx.font = "23px Consolas";
+  //   ctx.fillStyle = "lightblue";
+  //   ctx.fillText("GAME OVER! Player 2 Wins!!", 65, 100);
+  //   gameOver.play();
+  //   setTimeout(tabReset, 2000);
+  // }
+}
+
+//Tab reload
+function reset() {
+  ball.x = 400;
+  ball.y = 300;
+  paddle.x = 250;
+
+
+}
+
+function tabReset() {
+  state = "start";
+  document.location.reload();
+}
 
   
   

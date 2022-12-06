@@ -3,32 +3,32 @@
 //Set Up Canvas
 let cnv = document.getElementById("myCanvas");
 let ctx = cnv.getContext("2d");
-cnv.width = 1200;
-cnv.height = 1000;
+cnv.width = 1100;
+cnv.height = 900;
 
 
 //Global variables for keys 
 let leftIsPressed = false;
 let rightIsPressed = false;
 let aIsPressed = false;
-let dIsPressed = false
+let dIsPressed = false;
 
 //Global Variables
 let state = "start";
 let max = 475;
 let grid= 20;
 let ball = {
-  x:400,
-  y:300, 
+  x:550,
+  y:500, 
   radius : 12,
   velocityX: 3, 
   velocityY: 8,
   color: "white"
 }
 let paddle = {
-  x:400,
-  y:500,
-  w:110,
+  x:490,
+  y:800,
+  w:130,
   h:15
 }
 // Global variables for sound effects
@@ -67,13 +67,13 @@ document.addEventListener("keyup", arrowRightHandler);
 
 
 function arrowLeftHandler(e) {
-  if (e.keycode === 37 ) {
+  if (e.code === "ArrowLeft" ) {
     leftIsPressed = true;
-  } else if (e.keycode === 39){
+  } else if (e.code === "ArrowRight"){
     rightIsPressed = true;
-  } else if (e.keycode === 65){
+  } else if (e.code === "A"){
     aIsPressed = true;
-  } else if (e.keycode === 68){
+  } else if (e.code === "B"){
     dIsPressed = true;
   }
   if (state==="start") {
@@ -82,13 +82,13 @@ function arrowLeftHandler(e) {
 }
 
 function arrowRightHandler(e) {
-  if (e.keycode === 37){
+  if (e.code === "ArrowLeft"){
     leftIsPressed = false;
-  } else if (e.keycode === 39){
+  } else if (e.code === "ArrowRight"){
     rightIsPressed = false;
-  } else if (e.keycode === 65){
+  } else if (e.code === "A"){
     aIsPressed = false;
-  } else if (e.keycode ===68){
+  } else if (e.code ==="B"){
     dIsPressed = false;
   }
 }
