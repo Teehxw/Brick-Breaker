@@ -3,23 +3,23 @@
 //Set Up Canvas
 let cnv = document.getElementById("myCanvas");
 let ctx = cnv.getContext("2d");
-cnv.width = 800;
-cnv.height = 600;
+cnv.width = 1100;
+cnv.height = 900;
 
 
 //Global variables for keys 
 let leftIsPressed = false;
 let rightIsPressed = false;
 let aIsPressed = false;
-let dIsPressed = false
+let dIsPressed = false;
 
 //Global Variables
 let state = "start";
 let max = 475;
 let grid= 20;
 let ball = {
-  x:400,
-  y:300, 
+  x:550,
+  y:500, 
   radius : 12,
   velocityX: 3, 
   velocityY: 8,
