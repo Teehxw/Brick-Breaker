@@ -27,7 +27,7 @@ let ball = {
 }
 let paddle = {
   x:400,
-  y:500,
+  y:530,
   w:110,
   h:15
 }
@@ -67,13 +67,13 @@ document.addEventListener("keydown", arrowRightHandler);
 
 
 function arrowLeftHandler(e) {
-  if (e.keycode === 37 ) {
+  if (e.code === "ArrowLeft" ) {
     leftIsPressed = true;
-  } else if (e.keycode === 39){
+  } else if (e.code === "ArrowRight"){
     rightIsPressed = true;
-  } else if (e.keycode === 65){
+  } else if (e.code === "A"){
     aIsPressed = true;
-  } else if (e.keycode === 68){
+  } else if (e.code === "D"){
     dIsPressed = true;
   }
   if (state==="start") {
@@ -82,13 +82,13 @@ function arrowLeftHandler(e) {
 }
 
 function arrowRightHandler(e) {
-  if (e.keycode === 37){
+  if (e.code === "ArrowLeft"){
     leftIsPressed = false;
-  } else if (e.keycode === 39){
+  } else if (e.code === "ArrowRight"){
     rightIsPressed = false;
-  } else if (e.keycode === 65){
+  } else if (e.code === "A"){
     aIsPressed = false;
-  } else if (e.keycode ===68){
+  } else if (e.code === "D"){
     dIsPressed = false;
   }
 }
