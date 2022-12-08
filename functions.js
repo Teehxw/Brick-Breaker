@@ -5,9 +5,9 @@ function drawStart() {
     drawMainComponents();
   
     // Start Text
-    ctx.font = "20px Consolas";
+    ctx.font = "40px Consolas";
     ctx.fillStyle = "white";
-    ctx.fillText("PRESS KEYS to Start", 100, 50)
+    ctx.fillText("PRESS KEYS to Start", 200, 70)
   }
 
   function drawGame() {
@@ -33,7 +33,7 @@ function drawStart() {
     checkCollisions();
   }
   
-  // Check collisions of Paddles for up and down movement
+  // Check collisions of Paddles for left and right movement
   function checkCollisions() {
     //Check Collisions
     if (paddle.x < grid) {
@@ -55,16 +55,12 @@ function drawStart() {
   //Ball Collisions with the walls
   
   function ballCollisions() {
-    if (ball.y < 780) {
+    if (ball.y < 530) {
       ball.velocityY = 8;
     //   bounce.play();
     
     }
-<<<<<<< HEAD
     if (ball.y > 910) {
-=======
-    if (ball.y >745) {
->>>>>>> 94f0fd4ac73c44443768485d1d95cac003c28f4b
         state = "gameover";
     }
 
@@ -82,14 +78,9 @@ function drawStart() {
   
     // Ball Collsion with Paddles
 
-    if (ball.x <= paddle.x + 10 && ball.y >= paddle.y && ball.y <= paddle.y + 90) {
-<<<<<<< HEAD
-      ball.velocityX = ax;
-      ax = ax -= 1;
-=======
-      ball.velocityX = 3;
-      ball.velocityX -= 1;
->>>>>>> 94f0fd4ac73c44443768485d1d95cac003c28f4b
+    if (ball.y <= paddle.y  && ball.x >= paddle.x && ball.x <= paddle.x ) {
+      ball.velocityY= 2 ;
+    
       // paddlebounce.play();
       // bounce.pause();
     }
@@ -113,25 +104,18 @@ function drawMainComponents() {
     ctx.fill();
   }
 
-<<<<<<< HEAD
   function drawGameOver(){
     drawMainComponents();
   //Draw Game Over Text
   if (ball.y >910) {
-    ctx.font = "100px Consolas";
+    ctx.font = "50px Consolas";
     ctx.fillStyle = "lightblue";
-    ctx.fillText("GAME OVER!",300, 500 )
+    ctx.fillText("GAME OVER!",270, 305 )
     //gameOver.play();
     setTimeout(tabReset, 3000);
 
   }
-  // if (leftPlayerScore === 7) {
-  //   ctx.font = "23px Consolas";
-  //   ctx.fillStyle = "lightblue";
-  //   ctx.fillText("GAME OVER! Player 2 Wins!!", 65, 100);
-  //   gameOver.play();
-  //   setTimeout(tabReset, 2000);
-  // }
+  
 }
 
 //Tab reload
@@ -142,40 +126,10 @@ function reset() {
 
 
 }
-=======
-
-  // Draw Game Over
-function drawGameOver() {
-  drawMainComponents();
-
-  //Draw Game Over Text
-  if (ball.y > 745) {
-    ctx.font = "23px Consolas";
-    ctx.fillStyle = "lightblue";
-    ctx.fillText("GAME OVER!", 415, 100);
-    // gameOver.play();
-    setTimeout(tabReset, 3000);
-
-  }
-  if (leftPlayerScore === 7) {
-    // ctx.font = "23px Consolas";
-    // ctx.fillStyle = "lightblue";
-    // ctx.fillText("GAME OVER! Player 2 Wins!!", 65, 100);
-    // gameOver.play();
-    // setTimeout(tabReset, 2000);
-
-  }
-}
-
->>>>>>> 94f0fd4ac73c44443768485d1d95cac003c28f4b
 
 function tabReset() {
   state = "start";
   document.location.reload();
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 94f0fd4ac73c44443768485d1d95cac003c28f4b
   
   

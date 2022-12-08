@@ -3,8 +3,8 @@
 //Set Up Canvas
 let cnv = document.getElementById("myCanvas");
 let ctx = cnv.getContext("2d");
-cnv.width = 1100;
-cnv.height = 900;
+cnv.width = 800;
+cnv.height = 600;
 
 
 //Global variables for keys 
@@ -18,15 +18,15 @@ let state = "start";
 let max = 475;
 let grid= 20;
 let ball = {
-  x:550,
-  y:500, 
+  x:405,
+  y:315, 
   radius : 12,
   velocityX: 3, 
   velocityY: 8,
   color: "white"
 }
 let paddle = {
-  x:400,
+  x:350,
   y:530,
   w:110,
   h:15
