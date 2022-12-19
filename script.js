@@ -18,17 +18,17 @@ let state = "start";
 let max = 475;
 let grid= 20;
 let ball = {
-  x:550,
-  y:500, 
+  x:405,
+  y:315, 
   radius : 12,
   velocityX: 3, 
   velocityY: 8,
   color: "white"
 }
 let paddle = {
-  x:490,
-  y:800,
-  w:130,
+  x:350,
+  y:530,
+  w:110,
   h:15
 }
 // Global variables for sound effects
@@ -81,7 +81,7 @@ function arrowLeftHandler(e) {
     rightIsPressed = true;
   } else if (e.code === "A"){
     aIsPressed = true;
-  } else if (e.code === "B"){
+  } else if (e.code === "D"){
     dIsPressed = true;
   }
   if (state==="start") {
@@ -96,7 +96,7 @@ function arrowRightHandler(e) {
     rightIsPressed = false;
   } else if (e.code === "A"){
     aIsPressed = false;
-  } else if (e.code ==="B"){
+  } else if (e.code === "D"){
     dIsPressed = false;
   }
 }

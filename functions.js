@@ -5,9 +5,9 @@ function drawStart() {
     drawMainComponents();
   
     // Start Text
-    ctx.font = "20px Consolas";
+    ctx.font = "40px Consolas";
     ctx.fillStyle = "white";
-    ctx.fillText("PRESS KEYS to Start", 100, 50)
+    ctx.fillText("PRESS KEYS to Start", 200, 70)
   }
 
   function drawGame() {
@@ -33,7 +33,7 @@ function drawStart() {
     checkCollisions();
   }
   
-  // Check collisions of Paddles for up and down movement
+  // Check collisions of Paddles for left and right movement
   function checkCollisions() {
     //Check Collisions
     if (paddle.x < grid) {
@@ -55,7 +55,7 @@ function drawStart() {
   //Ball Collisions with the walls
   
   function ballCollisions() {
-    if (ball.y < 780) {
+    if (ball.y < 530) {
       ball.velocityY = 8;
     //   bounce.play();
     
@@ -108,20 +108,14 @@ function drawMainComponents() {
     drawMainComponents();
   //Draw Game Over Text
   if (ball.y >910) {
-    ctx.font = "100px Consolas";
+    ctx.font = "50px Consolas";
     ctx.fillStyle = "lightblue";
-    ctx.fillText("GAME OVER!",300, 500 )
+    ctx.fillText("GAME OVER!",270, 305 )
     //gameOver.play();
     setTimeout(tabReset, 3000);
 
   }
-  // if (leftPlayerScore === 7) {
-  //   ctx.font = "23px Consolas";
-  //   ctx.fillStyle = "lightblue";
-  //   ctx.fillText("GAME OVER! Player 2 Wins!!", 65, 100);
-  //   gameOver.play();
-  //   setTimeout(tabReset, 2000);
-  // }
+  
 }
 
 //Tab reload
