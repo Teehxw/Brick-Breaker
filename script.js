@@ -3,13 +3,8 @@
 //Set Up Canvas
 let cnv = document.getElementById("myCanvas");
 let ctx = cnv.getContext("2d");
-<<<<<<< HEAD
 cnv.width = 1100;
 cnv.height = 900;
-=======
-cnv.width = 800;
-cnv.height = 600;
->>>>>>> 94f0fd4ac73c44443768485d1d95cac003c28f4b
 
 
 //Global variables for keys 
@@ -46,6 +41,14 @@ let paddle = {
 
 
 
+//Array
+let bricks = drawBricks();
+
+//Draw Bricks
+for(let i = 0; i< bricks.length; i++){
+  ctx.fillStyle = bricks[i].color;
+  ctx.fillRect(bricks[i].x, bricks[i].y, bricks[i].w, bricks[i].h );
+}
 
 //Draw Function
 window.addEventListener("load", draw)
