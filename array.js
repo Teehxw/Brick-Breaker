@@ -1,28 +1,31 @@
 //Array to draw Bricks
-let brickNumb = 15;
+let bricks = drawBricks();
+
 function drawBricks() {
+let brickNumb = 25;
     let draw = [];
     for (let k = 0; k < brickNumb; k++) {
         let brickObs = {
-            x: 63 + 28 * k,
-            y: 50,
-            w: 30,
+            x: 130+30 * k,
+            y: 150,
+            w: 25,
             h: 30,
             color: "", 
             count: 24
         }
-        if (brickObs.count < 5){
+        if (brickObs.count > 5){
             brickObs.color = "blue";
         } else {
             brickObs.color ="red"
         }
-    } draw.push(brickObs)
+        draw.push(brickObs)
+    } 
 
     for (let k = 0; k < brickNumb; k++) {
         let brickObs = {
-            x: 63 + 28 * k,
-            y: 70,
-            w: 30,
+            x: 130+30 * k,
+            y: 210,
+            w: 25,
             h: 30,
             color: "", 
             count: 24
@@ -32,13 +35,14 @@ function drawBricks() {
         } else {
             brickObs.color ="red"
         }
-    } draw.push(brickObs)
+        draw.push(brickObs)
+    } 
 
     for (let k = 0; k < brickNumb; k++) {
         let brickObs = {
-            x: 63 + 28 * k,
-            y: 90,
-            w: 30,
+            x: 130+30 * k,
+            y: 270,
+            w: 25,
             h: 30,
             color: "", 
             count: 24
@@ -48,7 +52,8 @@ function drawBricks() {
         } else {
             brickObs.color ="red"
         }
-    } draw.push(brickObs)
+        draw.push(brickObs)
+    } 
 
      return draw;
 }

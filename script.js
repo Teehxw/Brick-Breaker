@@ -3,8 +3,8 @@
 //Set Up Canvas
 let cnv = document.getElementById("myCanvas");
 let ctx = cnv.getContext("2d");
-cnv.width = 1100;
-cnv.height = 900;
+cnv.width = 1000;
+cnv.height = 800;
 
 
 //Global variables for keys 
@@ -15,19 +15,19 @@ let dIsPressed = false;
 
 //Global Variables
 let state = "start";
-let max = 475;
+let max = 875;
 let grid= 20;
 let ball = {
-  x:405,
-  y:315, 
+  x:500,
+  y:400, 
   radius : 12,
   velocityX: 3, 
   velocityY: 8,
   color: "white"
 }
 let paddle = {
-  x:350,
-  y:530,
+  x:450,
+  y:700,
   w:110,
   h:15
 }
@@ -42,13 +42,7 @@ let paddle = {
 
 
 //Array
-let bricks = drawBricks();
 
-//Draw Bricks
-for(let i = 0; i< bricks.length; i++){
-  ctx.fillStyle = bricks[i].color;
-  ctx.fillRect(bricks[i].x, bricks[i].y, bricks[i].w, bricks[i].h );
-}
 
 //Draw Function
 window.addEventListener("load", draw)
@@ -59,6 +53,7 @@ function draw (){
   if(state==="gameon"){
    move();
    drawGame();
+   moveBall();
   
   }
   if (state === "gameover"){
@@ -70,18 +65,18 @@ function draw (){
 
 
 //Event Stuff
-document.addEventListener("keyup", arrowLeftHandler);
-document.addEventListener("keydown", arrowRightHandler);
+document.addEventListener("keyup", keyupHandler);
+document.addEventListener("keydown", keydownHandler);
 
 
-function arrowLeftHandler(e) {
+function keydownHandler(e) {
   if (e.code === "ArrowLeft" ) {
     leftIsPressed = true;
   } else if (e.code === "ArrowRight"){
     rightIsPressed = true;
-  } else if (e.code === "A"){
+  } else if (e.code === "KeyA"){
     aIsPressed = true;
-  } else if (e.code === "D"){
+  } else if (e.code === "KeyD"){
     dIsPressed = true;
   }
   if (state==="start") {
@@ -89,14 +84,14 @@ function arrowLeftHandler(e) {
   }
 }
 
-function arrowRightHandler(e) {
+function keyupHandler(e) {
   if (e.code === "ArrowLeft"){
     leftIsPressed = false;
   } else if (e.code === "ArrowRight"){
     rightIsPressed = false;
-  } else if (e.code === "A"){
+  } else if (e.code === "KeyA"){
     aIsPressed = false;
-  } else if (e.code === "D"){
+  } else if (e.code === "KeyD"){
     dIsPressed = false;
   }
 }
