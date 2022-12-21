@@ -50,13 +50,14 @@ function moveBall() {
   ball.x += ball.velocityX;
   ball.y += ball.velocityY;
   ballCollisions();
+  console.log(ball.y);
 }
 
 //Ball Collisions with the walls
 
 function ballCollisions() {
-  if (ball.y < 530) {
-    ball.velocityY = 8;
+  if (ball.y < 11) {
+    ball.velocityY = 7;
     //   bounce.play();
 
   }
@@ -65,25 +66,31 @@ function ballCollisions() {
   }
 
   if (ball.x < 10) {
-    ball.velocityX = 2;
+    ball.velocityX = 7;
     //   bounce.play();
   }
 
-  if (ball.x > 770) {
-    ball.velocityX = -2;
+  // if (ball.y > 770) {
+  //   ball.velocityY = -7;
+  // }
+
+  if (ball.x > 1000) {
+    ball.velocityX = -7
   }
+  // Ball Collsion with Paddles
+
+  if (ball.x <= paddle.x + 20 && ball.y <= paddle.y + 20 ) {
+  ball.velocityY = -1;
+  
+  // paddlebounce.play();
+  // bounce.pause();
+}
 
 
 }
 
 // Ball Collsion with Paddles
 
-if (ball.x <= paddle.x + 10 && ball.y >= paddle.y && ball.y <= paddle.y + 90) {
-  ball.velocityX = ax;
-  ax = ax -= 1;
-  // paddlebounce.play();
-  // bounce.pause();
-}
 
 //Helper Functions 
 
