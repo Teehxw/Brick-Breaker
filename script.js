@@ -15,8 +15,8 @@ let dIsPressed = false;
 
 //Global Variables
 let state = "start";
-let max = 875;
-let grid= 20;
+let max = 885;
+let grid= 10;
 let ball = {
   x:500,
   y:400, 

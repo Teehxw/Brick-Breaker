@@ -79,11 +79,22 @@ function ballCollisions() {
   }
   // Ball Collsion with Paddles
 
-  if (ball.x <= paddle.x + 20 && ball.y <= paddle.y + 20 ) {
-  ball.velocityY = -1;
-  
+  if (ball.x > paddle.x && ball.x < paddle.x + paddle.w &&
+    ball.y > paddle.y && ball.y < paddle.y + paddle.h) {
+    // Collision detected!
+     ball.velocityY = -7;
   // paddlebounce.play();
   // bounce.pause();
+
+  //Ball Collisions with Bricks
+  // for (let i = 0; i < bricks.length; i++){
+    if (ball.x > brickObs.x && ball.x < brickObs.x + brickObs.w &&
+      ball.y > brickObs.y && ball.y < brickObs.y + brickObs.h) {
+        bricks.splice(i,1);
+      ball.velocityY = 7;
+
+  }
+  //}
 }
 
 
