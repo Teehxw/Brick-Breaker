@@ -42,13 +42,9 @@ let paddle = {
 
 
 //Array
-let bricks = drawBricks();
 
-//Draw Bricks
-for(let i = 0; i< bricks.length; i++){
-  ctx.fillStyle = bricks[i].color;
-  ctx.fillRect(bricks[i].x, bricks[i].y, bricks[i].w, bricks[i].h );
-}
+
+
 
 //Draw Function
 window.addEventListener("load", draw)
