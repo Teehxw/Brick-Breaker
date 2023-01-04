@@ -31,6 +31,7 @@ function move() {
     paddle.x += 10;
   }
   checkCollisions();
+  collisionBricks();
 }
 
 // Check collisions of Paddles for left and right movement
@@ -85,22 +86,23 @@ function ballCollisions() {
      ball.velocityY = -7;
   // paddlebounce.play();
   // bounce.pause();
-
-  //Ball Collisions with Bricks
-  // for (let i = 0; i < bricks.length; i++){
-    if (ball.x > brickObs.x && ball.x < brickObs.x + brickObs.w &&
-      ball.y > brickObs.y && ball.y < brickObs.y + brickObs.h) {
-        bricks.splice(i,1);
-      ball.velocityY = 7;
-
   }
-  //}
 }
 
 
-}
 
-// Ball Collsion with Paddles
+
+// Ball Collsion with Bricks
+function collisionBricks(){
+  for (let i = 0; i < bricks.length; i++){
+    if(ball.x - 10  < bricks[i].x + 25 && ball.x +10  > bricks[i].x && ball.y + 10 > bricks[i].y && ball.y - 10 < bricks[i].y + 25){
+     ball.velocityY += 1;
+      bricks.splice[i,1];
+      
+      break;
+    }
+  }
+}
 
 
 //Helper Functions 

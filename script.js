@@ -28,7 +28,7 @@ let ball = {
 let paddle = {
   x:450,
   y:700,
-  w:110,
+  w:120,
   h:15
 }
 // Global variables for sound effects
