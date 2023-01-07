@@ -3,12 +3,12 @@ let bricks= drawBricks();
 
 
 function drawBricks() {
-    let brickNumb = 15;
+    let brickNumb = 20;
     let draw = [];
     for (let k = 0; k < brickNumb; k++) {
         let brickObs = {
-            x: 130 +30 * k,
-            y: 150,
+            x: 100 +31* k,
+            y: 120,
             w: 25,
             h: 30,
             color: "", 
@@ -24,8 +24,8 @@ function drawBricks() {
 
     for (let k = 0; k < brickNumb; k++) {
         let brickObs = {
-            x: 130 +30 * k,
-            y: 210,
+            x: 100 +31 * k,
+            y: 180,
             w: 25,
             h: 30,
             color: "", 
@@ -41,8 +41,8 @@ function drawBricks() {
 
     for (let k = 0; k < brickNumb; k++) {
         let brickObs = {
-            x: 130 +30 * k,
-            y: 270,
+            x: 100 +31 * k,
+            y: 240,
             w: 25,
             h: 30,
             color: "", 

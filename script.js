@@ -3,8 +3,8 @@
 //Set Up Canvas
 let cnv = document.getElementById("myCanvas");
 let ctx = cnv.getContext("2d");
-cnv.width = 1000;
-cnv.height = 800;
+cnv.width = 800;
+cnv.height = 600;
 
 
 //Global variables for keys 
@@ -15,10 +15,13 @@ let dIsPressed = false;
 
 //Global Variables
 let state = "start";
-let max = 885;
-let grid= 10;
+let max = 680;
+let grid= 5;
+let ax = 1;
+let ay = 6;
+let playerScore = 0
 let ball = {
-  x:500,
+  x:400,
   y:400, 
   radius : 12,
   velocityX: 3, 
@@ -26,8 +29,8 @@ let ball = {
   color: "white"
 }
 let paddle = {
-  x:450,
-  y:700,
+  x:345,
+  y:550,
   w:120,
   h:15
 }
@@ -39,7 +42,9 @@ let paddle = {
 // let paddlebounce = document.createElement("audio");
 // paddlebounce.src = "sounds/paddlebounce.mp3";
 
-
+//Global Variable for Ball Img
+let ballImg = document.createElement("img");
+ballImg.src = "football.png"
 
 //Array
 
@@ -56,6 +61,8 @@ function draw (){
    move();
    drawGame();
    moveBall();
+  
+   
   
   }
   if (state === "gameover"){
