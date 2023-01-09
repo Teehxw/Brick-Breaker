@@ -1,13 +1,48 @@
-html{
-  background: lightblue;
-}
-body {
-  text-align: center;
-  color:black;
-  font-size: 40px
+html {
+  background: black;
 }
 
-canvas{
-border: 1px solid black;
-background: black;
+body {
+  text-align: center;
+  color: black;
+  font-size: 40px;
+  padding: 20px 100px;
+  margin: 50px auto;
+  background-color: rgb(255, 255, 255, 0.8);
+  border-radius: 25px;
+  width: 770px
+}
+
+#myCanvas {
+  border: 1px solid black;
+  background: black;
+  border-radius: 20px;
+}
+
+#PaddleSpeed {
+  height: 23px;
+  width: 150px;
+  font-size: 20px;
+}
+
+button {
+  height: 45px;
+  width: 120px;
+  font-size: 20px;
+  border-radius: 15px;
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+}
+
+p {
+  font-size: 30px;
+}
+
+#previewCanvas {
+  background-color: chartreuse;
+}
+
+#before {
+  font-size: 25px;
 }

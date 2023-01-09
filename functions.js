@@ -1,5 +1,6 @@
 // Functions 
 
+
 //DRAW START SCREEN
 function drawStart() {
   drawMainComponents();
@@ -7,7 +8,7 @@ function drawStart() {
   // Start Text
   ctx.font = "35px Consolas";
   ctx.fillStyle = "white";
-  ctx.fillText("PRESS KEYS to Start", 235, 70)
+  ctx.fillText("PRESS ENTER to Start", 235, 70)
 }
 
 function drawGame() {
@@ -22,25 +23,30 @@ function drawGame() {
 }
 
 //MOVE PADDLES
-function move() {
+
+function addPaddleSpeed() {
+  let paddleSpeedE1 = document.getElementById("PaddleSpeed");
+  move(paddleSpeedE1.value);
+  checkCollisions();
+}
+
+function move(speedInput) {
   if (aIsPressed === true) {
-    paddle.x -= 10;
+    paddle.x -= speedInput;
   }
   if (dIsPressed === true) {
-    paddle.x += 10;
+    paddle.x -= -speedInput;
   }
   if (leftIsPressed === true) {
-    paddle.x -= 10;
+    paddle.x -= speedInput;
   }
   if (rightIsPressed === true) {
-    paddle.x += 10;
+    paddle.x -= -speedInput;
   }
-
-  checkCollisions();
 
 }
 
-// CHECK PADDLES FOR LEFT AND RIGHT MOVEMENT
+//CHECK PADDLES FOR LEFT AND RIGHT MOVEMENT
 function checkCollisions() {
   //Check Collisions
   if (paddle.x < grid) {
@@ -86,8 +92,6 @@ function ballCollisions() {
   if (ball.x > paddle.x && ball.x < paddle.x + paddle.w &&
     ball.y > paddle.y && ball.y < paddle.y + paddle.h) {
     ball.velocityY = -7;
-    // paddlebounce.play();
-    // bounce.pause();
   }
 
   collisionsBricks();
@@ -118,7 +122,7 @@ function collisionsBricks() {
       }
       playerScore++;
       score();
-      break;
+      return 1
     }
   }
 }
@@ -159,7 +163,6 @@ function drawGameOver() {
     ctx.font = "50px Consolas";
     ctx.fillStyle = "lightblue";
     ctx.fillText("GAME OVER!", 275, 400)
-    //gameOver.play();
 
   }
   if (playerScore === 60) {
@@ -175,6 +178,7 @@ function drawGameOver() {
 function score() {
   if (playerScore === 60) {
     state = "gameover"
+    winner.play();
   }
 }
 
@@ -191,5 +195,6 @@ function tabReset() {
   state = "start";
   document.location.reload();
 }
+
 
 
