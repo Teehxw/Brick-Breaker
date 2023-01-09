@@ -17,8 +17,7 @@ let dIsPressed = false;
 let state = "start";
 let max = 680;
 let grid= 5;
-let ax = 1;
-let ay = 6;
+
 let playerScore = 0
 let ball = {
   x:400,
@@ -46,7 +45,7 @@ let paddle = {
 let ballImg = document.createElement("img");
 ballImg.src = "football.png"
 
-//Array
+
 
 
 
@@ -58,9 +57,10 @@ function draw (){
     drawStart();
   }
   if(state==="gameon"){
-   move();
    drawGame();
    moveBall();
+   move();
+   score()
   
    
   

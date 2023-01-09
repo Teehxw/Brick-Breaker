@@ -1,6 +1,6 @@
 // Functions 
 
-//Draw Start Screen
+//DRAW START SCREEN
 function drawStart() {
   drawMainComponents();
 
@@ -12,16 +12,16 @@ function drawStart() {
 
 function drawGame() {
   drawMainComponents();
-  
+
   //Draw the Score
   ctx.font = "30px Consolas";
   ctx.fillStyle = "white";
-  ctx.fillText(playerScore,750,50)
+  ctx.fillText(playerScore, 750, 50)
 
 
 }
 
-//Move Paddles
+//MOVE PADDLES
 function move() {
   if (aIsPressed === true) {
     paddle.x -= 10;
@@ -35,11 +35,12 @@ function move() {
   if (rightIsPressed === true) {
     paddle.x += 10;
   }
+
   checkCollisions();
-  collisionBricks();
+
 }
 
-// Check collisions of Paddles for left and right movement
+// CHECK PADDLES FOR LEFT AND RIGHT MOVEMENT
 function checkCollisions() {
   //Check Collisions
   if (paddle.x < grid) {
@@ -50,15 +51,16 @@ function checkCollisions() {
   }
 }
 
-//Move Ball
+//MOVE BALL
 
 function moveBall() {
   ball.x += ball.velocityX;
   ball.y += ball.velocityY;
   ballCollisions();
+
 }
 
-//Ball Collisions with the walls
+//BALL COLLISIONS WITH WALLS
 
 function ballCollisions() {
   if (ball.y < 11) {
@@ -83,47 +85,45 @@ function ballCollisions() {
 
   if (ball.x > paddle.x && ball.x < paddle.x + paddle.w &&
     ball.y > paddle.y && ball.y < paddle.y + paddle.h) {
-     ball.velocityY = -7;
-  // paddlebounce.play();
-  // bounce.pause();
+    ball.velocityY = -7;
+    // paddlebounce.play();
+    // bounce.pause();
   }
 
+  collisionsBricks();
 
 }
 
 
 
 
-// Ball Collsion with Bricks
-function collisionBricks(){
+// BALL COLLSION WITH BRICKS
+function collisionsBricks() {
+  //Ball Collisions with Bricks
   for (let i = 0; i < bricks.length; i++) {
     if (ball.x - 10 < bricks[i].x + 25 && ball.x + 10 > bricks[i].x && ball.y + 10 > bricks[i].y && ball.y - 10 < bricks[i].y + 25) {
       if (bricks[i].count > 1) {
         bricks.splice(i, 1);
       }
 
-         // Velocity
+      // Velocity
       if (ball.velocityY === 7) {
-        ball.y = bricks[i].y - 12;
-        ball.velocityY = -ay;
+        ball.velocityY = -7;
       } else if (ball.velocityY === -7) {
-        ball.velocityY = bricks[i].y + 12;
-        ball.velocityY = ay;
+        ball.velocityY = 7;
       } else if (ball.velocityX === -3) {
-        ball.velocityX = bricks[i].y  + 12 ;
-        ball.velocityX = ax;
+        ball.velocityX = 2;
       } else if (ball.velocityX === 3) {
-        ball.velocityX = bricks[i].y - 12;
-        ball.velocityX = -ax;
+        ball.velocityX = -2;
       }
       playerScore++;
+      score();
       break;
     }
   }
 }
 
-
-//Helper Functions 
+//HELPER FUNCTIONS
 
 function drawMainComponents() {
   //Draw Background
@@ -160,10 +160,22 @@ function drawGameOver() {
     ctx.fillStyle = "lightblue";
     ctx.fillText("GAME OVER!", 275, 400)
     //gameOver.play();
-    setTimeout(tabReset, 3000);
+
+  }
+  if (playerScore === 60) {
+    ctx.font = "50px Consolas";
+    ctx.fillStyle = "lightblue";
+    ctx.fillText("YOU WIN!", 275, 400)
 
   }
 
+  setTimeout(tabReset, 3000);
+}
+
+function score() {
+  if (playerScore === 60) {
+    state = "gameover"
+  }
 }
 
 //Tab reload
@@ -179,4 +191,5 @@ function tabReset() {
   state = "start";
   document.location.reload();
 }
+
 
