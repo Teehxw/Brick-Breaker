@@ -15,9 +15,9 @@ function drawBricks() {
             count: 24
         }
         if (brickObs.count > 5){
-            brickObs.color = "blue";
+            brickObs.color = "#800000";
         } else {
-            brickObs.color ="red"
+            brickObs.color = "#003300"
         }
         draw.push(brickObs)
     } 
@@ -32,9 +32,9 @@ function drawBricks() {
             count: 24
         }
         if (brickObs.count < 5){
-            brickObs.color = "blue";
+            brickObs.color = "#ff0000";
         } else {
-            brickObs.color ="red"
+            brickObs.color ="#ff0000"
         }
         draw.push(brickObs)
     } 
@@ -49,7 +49,7 @@ function drawBricks() {
             count: 24
         }
         if (brickObs.count > 5){
-            brickObs.color = "green";
+            brickObs.color = "#ff4d4d";
         } else {
             brickObs.color ="red"
         }

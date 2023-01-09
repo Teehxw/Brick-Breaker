@@ -4,7 +4,7 @@
 let cnv = document.getElementById("myCanvas");
 let ctx = cnv.getContext("2d");
 cnv.width = 800;
-cnv.height = 600;
+cnv.height = 700;
 
 
 
@@ -33,13 +33,17 @@ let ball = {
 }
 let paddle = {
   x: 345,
-  y: 550,
+  y: 650,
   w: 120,
   h: 15
 }
 // Global variables for sound effects
 let winner = document.createElement("audio");
-winner.src = "winner.mp3";
+winner.src = "/sounds/winner.mp3";
+let gameOver = document.createElement("audio");
+gameOver.src = "/sounds/gameOver.mp3";
+let brickBreak = document.createElement("audio");
+brickBreak.src = "/sounds/brickBreak.mp3";
 
 
 

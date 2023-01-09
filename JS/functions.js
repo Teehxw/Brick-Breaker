@@ -8,7 +8,7 @@ function drawStart() {
   // Start Text
   ctx.font = "35px Consolas";
   ctx.fillStyle = "white";
-  ctx.fillText("PRESS ENTER to Start", 235, 70)
+  ctx.fillText("Press ENTER to Start", 235, 70)
 }
 
 function drawGame() {
@@ -71,16 +71,14 @@ function moveBall() {
 function ballCollisions() {
   if (ball.y < 11) {
     ball.velocityY = 7;
-    //   bounce.play();
 
   }
-  if (ball.y > 610) {
+  if (ball.y > 710) {
     state = "gameover";
   }
 
   if (ball.x < 10) {
     ball.velocityX = 7;
-    //   bounce.play();
   }
 
 
@@ -108,6 +106,7 @@ function collisionsBricks() {
     if (ball.x - 10 < bricks[i].x + 25 && ball.x + 10 > bricks[i].x && ball.y + 10 > bricks[i].y && ball.y - 10 < bricks[i].y + 25) {
       if (bricks[i].count > 1) {
         bricks.splice(i, 1);
+        brickBreak.play();
       }
 
       // Velocity
@@ -161,9 +160,9 @@ function drawGameOver() {
   //Draw Game Over Text
   if (ball.y > 610) {
     ctx.font = "50px Consolas";
-    ctx.fillStyle = "lightblue";
+    ctx.fillStyle = "blue";
     ctx.fillText("GAME OVER!", 275, 400)
-
+    gameOver.play()
   }
   if (playerScore === 60) {
     ctx.font = "50px Consolas";
