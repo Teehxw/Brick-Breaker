@@ -11,14 +11,10 @@ function drawBricks() {
             y: 120,
             w: 25,
             h: 30,
-            color: "", 
             count: 24
         }
-        if (brickObs.count > 5){
-            brickObs.color = "#800000";
-        } else {
-            brickObs.color = "#003300"
-        }
+        brickObs.color = "#800000";
+
         draw.push(brickObs)
     } 
 
@@ -27,15 +23,11 @@ function drawBricks() {
             x: 100 +31 * k,
             y: 180,
             w: 25,
-            h: 30,
-            color: "", 
+            h: 30, 
             count: 24
         }
-        if (brickObs.count < 5){
-            brickObs.color = "#ff0000";
-        } else {
-            brickObs.color ="#ff0000"
-        }
+        
+        brickObs.color = "#ff0000";
         draw.push(brickObs)
     } 
 
@@ -45,14 +37,9 @@ function drawBricks() {
             y: 240,
             w: 25,
             h: 30,
-            color: "", 
             count: 24
         }
-        if (brickObs.count > 5){
-            brickObs.color = "#ff4d4d";
-        } else {
-            brickObs.color ="red"
-        }
+        brickObs.color = "#ff4d4d"
         draw.push(brickObs)
     } 
 
